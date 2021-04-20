@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{ACB5FB5C-D321-421A-8838-D86618694E8F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "apps\Build\Build.csproj", "{8D47FD1D-449E-4608-91DC-D7DB90676CD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{69E5E3B7-39DD-45B3-A0D1-13C2E727B851}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		build.props = build.props
+		build.targets = build.targets
+		conventions.props = conventions.props
+		conventions.targets = conventions.targets
+		LICENSE = LICENSE
+		packages.props = packages.props
+		settings.props = settings.props
+		source.props = source.props
+		versions.props = versions.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Debug|x64.Build.0 = Debug|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Debug|x86.Build.0 = Debug|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Release|x64.ActiveCfg = Release|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Release|x64.Build.0 = Release|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D47FD1D-449E-4608-91DC-D7DB90676CD7} = {ACB5FB5C-D321-421A-8838-D86618694E8F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCC40D6D-F24E-4C50-BE33-6FE48DAF6372}
+	EndGlobalSection
+EndGlobal

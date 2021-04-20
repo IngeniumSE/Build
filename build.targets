@@ -1,0 +1,4 @@
+<Project>
+	<Import Project="./conventions.targets" />
+	<Import Project="./packages.props" />
+</Project>

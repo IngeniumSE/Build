@@ -1,0 +1,12 @@
+<Project>
+	<PropertyGroup Label="Microsoft">
+		<!-- Overall MSE.* -->
+		<MSExtVersion Condition="'$(MSExtVersion)'==''">5.0.0</MSExtVersion>
+
+		<!-- Specific MSE.* packages -->
+		<MSExtConfigVersion Condition="'$(MSExtConfigVersion)'==''">$(MSExtVersion)</MSExtConfigVersion>
+		<MSExtDIVersion Condition="'$(MSExtDIVersion)'==''">$(MSExtVersion)</MSExtDIVersion>
+		<MSExtDepModelVersion Condition="'$(MSExtDepModelVersion)'==''">$(MSExtVersion)</MSExtDepModelVersion>
+		<MSExtHostVersion Condition="'$(MSExtHostVersion)'==''">$(MSExtVersion)</MSExtHostVersion>
+	</PropertyGroup>
+</Project>

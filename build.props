@@ -1,0 +1,6 @@
+<Project>
+	<Import Project="./settings.props" />
+	<Import Project="./source.props" />
+	<Import Project="./versions.props" />
+	<Import Project="./conventions.props" />
+</Project>
