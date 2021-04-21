@@ -73,6 +73,11 @@ namespace Build
 		public BuildType BuildType { get; }
 
 		/// <summary>
+		/// Gets whether the project has been built.
+		/// </summary>
+		public bool HasBuilt { get; private set; }
+
+		/// <summary>
 		/// Gets the project name.
 		/// </summary>
 		public string Name { get; }
@@ -101,6 +106,11 @@ namespace Build
 		/// Gets the test framework.
 		/// </summary>
 		public TestFramework? TestFramework { get; }
+
+		/// <summary>
+		/// Marks the project as built.
+		/// </summary>
+		public void MarkAsBuilt() => HasBuilt = true;
 
 		string DebuggerToString()
 		{

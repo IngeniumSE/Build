@@ -12,26 +12,36 @@ namespace Build
 		/// <summary>
 		/// Gets the application path convention.
 		/// </summary>
-		public const string ApplicationPathConvention = "/apps/**/*.csproj";
+		public const string ApplicationPathConvention = "./apps/**/*.csproj";
+
+		/// <summary>
+		/// Gets the artefacts path.
+		/// </summary>
+		public const string ArtefactsPath = "./artefacts/";
 
 		/// <summary>
 		/// Gets the content path convention.
 		/// </summary>
-		public const string ContentPathConvention = "/content/**/*.csproj";
+		public const string ContentPathConvention = "./content/**/*.csproj";
 
 		/// <summary>
 		/// Gets the data path convention.
 		/// </summary>
-		public const string DataPathConvention = "/data/**/*.sqlproj";
+		public const string DataPathConvention = "./data/**/*.sqlproj";
 
 		/// <summary>
 		/// Gets the library path convention.
 		/// </summary>
-		public const string LibraryPathConvention = "/libs/**/*.csproj";
+		public const string LibraryPathConvention = "./libs/**/*.csproj";
 
 		/// <summary>
 		/// Gets the test path convention.
 		/// </summary>
-		public const string TestPathConvention = "/tests/**/*.csproj";
+		public const string TestPathConvention = "./tests/**/*.csproj";
+
+		/// <summary>
+		/// Gets the test results path.
+		/// </summary>
+		public const string TestResultsPath = "./artefacts/tests";
 	}
 }

@@ -13,9 +13,11 @@ namespace Build
 	using Cake.Common.Tools.DotNetCore;
 	using Cake.Common.Tools.DotNetCore.Build;
 	using Cake.Common.Tools.DotNetCore.Publish;
+	using Cake.Common.Tools.DotNetCore.Test;
 	using Cake.Common.Tools.MSBuild;
 	using Cake.Common.Tools.NuGet;
 	using Cake.Common.Tools.NuGet.Restore;
+	using Cake.Common.Tools.VSTest;
 	using Cake.Common.Xml;
 	using Cake.Core;
 	using Cake.Core.IO;
@@ -151,6 +153,58 @@ namespace Build
 		}
 
 		/// <summary>
+		/// Tests the target project.
+		/// </summary>
+		/// <param name="context">The build context.</param>
+		/// <param name="project">The project to build.</param>
+		public static void TestProject(
+			this BuildContext context,
+			BuildProject project)
+		{
+			string name = project.ProjectFilePath.GetFilenameWithoutExtension().Segments.Last();
+			string resultsFile = $"{name}.xml";
+
+			if (project.BuildEngine == BuildEngine.MSBuild)
+			{
+				BuildProject(context, project);
+
+				resultsFile = FilePath.FromString($"./{resultsFile}").MakeAbsolute(context.TestResultsPath).FullPath;
+
+				var settings = new VSTestSettings
+				{
+					ToolPath = context.Tools.Resolve("vstest.console.exe"),
+					TestAdapterPath = GetTestAdapterLocation(context, project),
+					Logger = $"trx;LogFileName={resultsFile}"
+				};
+
+				context.VSTest(project.ProjectFilePath.GetDirectory() + $"/bin/{context.Configuration}/**/*.Tests.dll", settings);
+			}
+			else
+			{
+				foreach (string framework in project.TargetFrameworks)
+				{
+					resultsFile = $"{name}-{framework}.xml";
+
+					var settings = new DotNetCoreTestSettings
+					{
+						NoBuild = project.HasBuilt,
+						Configuration = context.Configuration,
+						Framework = framework,
+						ResultsDirectory = context.TestResultsPath,
+						Logger = $"trx;LogFileName={resultsFile}",
+						ArgumentCustomization = args =>
+						{
+							args.Append($"/p:SolutionDir={context.SolutionPath.FullPath}");
+							return args;
+						}
+					};
+
+					context.DotNetCoreTest(project.ProjectFilePath.FullPath, settings);
+				}
+			}
+		}
+
+		/// <summary>
 		/// Gets the build projects available in the current repository.
 		/// </summary>
 		/// <param name="context">The Cake context.</param>
@@ -164,8 +218,10 @@ namespace Build
 		{
 			IReadOnlyCollection<BuildProject> GetBuildProjectsInternal(string path, BuildType type)
 			{
+				var fullPath = root.Combine(new DirectoryPath(path));
+
 				List<BuildProject> projects = new();
-				foreach (var project in context.GetFiles(root + path))
+				foreach (var project in context.GetFiles(fullPath.FullPath))
 				{
 					if (!IsProjectExcluded(context, project, root, settings))
 					{
@@ -355,5 +411,17 @@ namespace Build
 				GetMsBuildPropertyValue(context, path, "Ing_TestFramework"),
 				setting,
 				StringComparison.OrdinalIgnoreCase);
+
+		static DirectoryPath GetTestAdapterLocation(BuildContext context, BuildProject project)
+		{
+			if (project.TestFramework == TestFramework.NUnit)
+			{
+				return context.GetDirectories($"./tools/NUnit3TestAdapter.3.16.1/build/{(project.BuildEngine == BuildEngine.MSBuild ? "net35" : "netcoreapp2.1")}/")
+					.FirstOrDefault();
+			}
+
+			return context.GetDirectories("./tools/xunit.runner.visualstudio.2.4.0/_common/")
+				.FirstOrDefault();
+		}
 	}
 }

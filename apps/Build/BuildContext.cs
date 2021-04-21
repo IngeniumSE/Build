@@ -31,6 +31,9 @@ namespace Build
 			(RootPath, SolutionPath) = GetRootPath(context, context.Environment.ApplicationRoot);
 
 			Projects = context.GetBuildProjects(RootPath, new BuildSettings());
+
+			ArtefactsPath = RootPath.Combine(new DirectoryPath(BuildPaths.ArtefactsPath));
+			TestResultsPath = RootPath.Combine(new DirectoryPath(BuildPaths.TestResultsPath));
 		}
 
 		/// <summary>
@@ -44,6 +47,11 @@ namespace Build
 		public IReadOnlyDictionary<BuildType, IReadOnlyCollection<BuildProject>> Projects { get; }
 
 		/// <summary>
+		/// Gets the artefacts path.
+		/// </summary>
+		public DirectoryPath ArtefactsPath { get; }
+
+		/// <summary>
 		/// Gets the resolved root path.
 		/// </summary>
 		public DirectoryPath RootPath { get; }
@@ -52,6 +60,11 @@ namespace Build
 		/// Gets the resolved solution path.
 		/// </summary>
 		public FilePath SolutionPath { get; }
+
+		/// <summary>
+		/// Gets the test results path.
+		/// </summary>
+		public DirectoryPath TestResultsPath { get; }
 
 		/// <summary>
 		/// Gets or sets the version.

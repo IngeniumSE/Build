@@ -7,16 +7,18 @@ namespace Build.Tasks
 	using Cake.Frosting;
 
 	/// <summary>
-	/// The default (entry point) task for the build.
+	/// Executes any unit tests for available test projects.
 	/// </summary>
-	[TaskName("Default")]
-	[Dependency(typeof(BuildProjects))]
-	[Dependency(typeof(TestProjects))]
-	public class DefaultTask : BuildTask
+	[TaskName("Test")]
+	public class TestProjects : BuildTask
 	{
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{
+			foreach (var project in context.Projects[BuildType.Test])
+			{
+				context.TestProject(project);
+			}
 		}
 	}
 }
