@@ -38,7 +38,7 @@ namespace Build
 				if (useCustomNuSpec)
 				{
 					context.CopyFile(specFilePath, tempFilePath);
-					context.ReplaceTextInFiles(tempFilePath.FullPath, "$(version)", context.Version.PackageVersion);
+					context.ReplaceTextInFiles(tempFilePath.FullPath, "$(version)", context.Version?.PackageVersion ?? "0.0.0");
 					context.ReplaceTextInFiles(tempFilePath.FullPath, "$(configuration)", context.Configuration);
 				}
 

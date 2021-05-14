@@ -16,6 +16,8 @@ namespace Build.Tasks
 	[IsDependentOn(typeof(PackProjects))]
 	public class DefaultTask : BuildTask
 	{
+		public DefaultTask(BuildServices services) : base(services) { }
+
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{

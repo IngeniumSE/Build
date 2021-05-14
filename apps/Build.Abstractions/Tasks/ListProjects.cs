@@ -17,6 +17,8 @@ namespace Build.Tasks
 	[TaskName("List")]
 	public class ListProjects : BuildTask
 	{
+		public ListProjects(BuildServices services) : base(services) { }
+
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{
@@ -52,7 +54,7 @@ namespace Build.Tasks
 			}
 		}
 
-		int WriteRows(
+		static int WriteRows(
 			Table table,
 			IReadOnlyCollection<BuildProject> projects,
 			Func<BuildProject, string> otherInfoThunk)

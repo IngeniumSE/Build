@@ -16,6 +16,8 @@ namespace Build.Tasks
 	[TaskName("Version")]
 	public class ResolveVerson : BuildTask
 	{
+		public ResolveVerson(BuildServices services) : base(services) { }
+
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{

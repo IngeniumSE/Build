@@ -20,15 +20,6 @@ namespace Build
 	/// </summary>
 	public static class TestHelpers
 	{
-		static readonly XmlPeekSettings StandardXmlPeekSettings = new XmlPeekSettings()
-		{
-			SuppressWarning = true,
-			Namespaces = new Dictionary<string, string>
-			{
-				["msbuild"] = "http://schemas.microsoft.com/developer/msbuild/2003"
-			}
-		};
-
 		/// <summary>
 		/// Tests the target project.
 		/// </summary>
@@ -68,7 +59,10 @@ namespace Build
 						Configuration = context.Configuration,
 						Framework = framework,
 						ResultsDirectory = context.TestResultsPath,
-						Logger = $"trx;LogFileName={resultsFile}",
+						Loggers = new[]
+						{
+							$"trx;LogFileName={resultsFile}"
+						},
 						ArgumentCustomization = args =>
 						{
 							args.Append($"/p:SolutionDir={context.SolutionPath.FullPath}");
@@ -81,7 +75,7 @@ namespace Build
 			}
 		}
 
-		static DirectoryPath GetTestAdapterLocation(BuildContext context, BuildProject project)
+		static DirectoryPath? GetTestAdapterLocation(BuildContext context, BuildProject project)
 		{
 			if (project.TestFramework == TestFramework.NUnit)
 			{

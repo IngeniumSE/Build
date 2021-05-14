@@ -5,8 +5,6 @@
 namespace Build
 {
 	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.Linq;
 
 	using Microsoft.Extensions.DependencyInjection;
 
@@ -34,7 +32,7 @@ namespace Build
 		public IEnumerable<THook> GetHooks<THook>()
 			where THook : ITaskHook
 		{
-			using var scope = 
+			yield break;
 		}
 	}
 }

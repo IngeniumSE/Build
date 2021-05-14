@@ -12,6 +12,8 @@ namespace Build.Tasks
 	[TaskName("Test")]
 	public class TestProjects : BuildTask
 	{
+		public TestProjects(BuildServices services) : base(services) { }
+
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{

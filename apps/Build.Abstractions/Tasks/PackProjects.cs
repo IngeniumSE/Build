@@ -12,6 +12,8 @@ namespace Build.Tasks
 	[TaskName("Pack")]
 	public class PackProjects : BuildTask
 	{
+		public PackProjects(BuildServices services) : base(services) { }
+
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{
