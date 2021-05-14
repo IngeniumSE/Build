@@ -12,16 +12,31 @@ namespace Build.Tasks
 	/// Performs a build of available projects.
 	/// </summary>
 	[TaskName("Build")]
+	[IsDependentOn(typeof(ResolveVerson))]
 	public class BuildProjects : BuildTask
 	{
+		public BuildProjects(BuildServices services) : base(services) { }
+
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{
 			void BuildAvailableProjects(IEnumerable<BuildProject> projects)
 			{
+				var hooks = Services.GetHooks<IBuildHook>();
+
 				foreach (var project in projects)
 				{
+					foreach (var hook in hooks)
+					{
+						hook.BeforeBuild(context, project);
+					}
+
 					context.BuildProject(project);
+
+					foreach (var hook in hooks)
+					{
+						hook.AfterBuild(context, project);
+					}
 
 					project.MarkAsBuilt();
 				}

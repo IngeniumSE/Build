@@ -7,16 +7,23 @@ namespace Build.Tasks
 	using Cake.Frosting;
 
 	/// <summary>
-	/// The default (entry point) task for the build.
+	/// Packs any avaible apps and libraries.
 	/// </summary>
-	[TaskName("Default")]
-	[Dependency(typeof(BuildProjects))]
-	[Dependency(typeof(TestProjects))]
-	public class DefaultTask : BuildTask
+	[TaskName("Pack")]
+	public class PackProjects : BuildTask
 	{
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{
+			foreach (var project in context.Projects[BuildType.Library])
+			{
+				context.PackProject(project);
+			}
+
+			foreach (var project in context.Projects[BuildType.Application])
+			{
+				context.PackProject(project);
+			}
 		}
 	}
 }

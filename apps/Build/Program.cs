@@ -12,6 +12,8 @@ namespace Build
 		{
 			return new CakeHost()
 					.UseContext<BuildContext>()
+					.UseDiscoveredTasks()
+					.UseDiscoveredHooks()
 					.Run(args);
 		}
 	}

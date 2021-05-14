@@ -1,0 +1,24 @@
+{
+	"profiles": {
+		"Target: Default": {
+			"commandName": "Project",
+			"commandLineArgs": ""
+		},
+		"Target: Version": {
+			"commandName": "Project",
+			"commandLineArgs": "--target Version"
+		},
+		"Target: Build": {
+			"commandName": "Project",
+			"commandLineArgs": "--target Build"
+		},
+		"Target: Test": {
+			"commandName": "Project",
+			"commandLineArgs": "--target Test"
+		},
+		"Target: List Projects": {
+			"commandName": "Project",
+			"commandLineArgs": "--target List"
+		}
+	}
+}

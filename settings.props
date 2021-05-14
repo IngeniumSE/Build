@@ -16,6 +16,7 @@
 	<PropertyGroup Label="Conventions">
 		<!-- Set the project type based on the naming convention (should this be directory based?) -->
 		<Ing_ProjectType Condition="$(MSBuildProjectName.EndsWith('Tests')) And '$(Ing_ProjectType)'==''">Test</Ing_ProjectType>
+		<Ing_ProjectType Condition="$(MSBuildProjectName.EndsWith('BuildExtensions')) And '$(Ing_ProjectType)'==''">BuildExtension</Ing_ProjectType>
 
 		<!-- The default test framework is xunit -->
 		<Ing_TestFramework Condition="'$(Ing_TestFramework)'==''">xunit</Ing_TestFramework>

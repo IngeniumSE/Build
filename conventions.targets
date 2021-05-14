@@ -1,4 +1,13 @@
 <Project>
+	<!-- Conventions for build extensions -->
+	<Import Project="./apps/packages.props" Condition="'$(Ing_ProjectType)'=='BuildExtension'"/>
+	
+	<!-- Standard packages in all projects -->
+	<ItemGroup Label="Standard" Condition="'$(Ing_ProjectType)'!='BuildExtension'">
+		<PackageReference Include="MinVer" />
+		<PackageReference Include="Ben.Demystifier" />
+	</ItemGroup>
+	
 	<!-- Standard testing packages -->
 	<ItemGroup Label="Testing" Condition="'$(Ing_ProjectType)'=='Test'">
 		<PackageReference Include="coverlet.collector" />

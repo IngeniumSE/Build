@@ -12,6 +12,7 @@ namespace Build
 	using Cake.Core;
 	using Cake.Core.IO;
 	using Cake.Frosting;
+	using Cake.MinVer;
 
 	/// <summary>
 	/// Represents a build context.
@@ -26,8 +27,6 @@ namespace Build
 				: base(context)
 		{
 			Configuration = context.Arguments.GetArgument("configuration") ?? "Release";
-			Version = context.Arguments.GetArgument("version");
-
 			(RootPath, SolutionPath) = GetRootPath(context, context.Environment.ApplicationRoot);
 
 			Projects = context.GetBuildProjects(RootPath, new BuildSettings());
@@ -67,9 +66,9 @@ namespace Build
 		public DirectoryPath TestResultsPath { get; }
 
 		/// <summary>
-		/// Gets or sets the version.
+		/// Gets or sets the version information.
 		/// </summary>
-		public string? Version { get; set; }
+		public MinVerVersion? Version { get; set; }
 
 		static (DirectoryPath, FilePath) GetRootPath(ICakeContext context, DirectoryPath path)
 		{

@@ -1,11 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net5.0</TargetFramework>
 		<RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
 	</PropertyGroup>
+	
 	<ItemGroup>
-		<PackageReference Include="Cake.Frosting" Version="1.0.0" />
-		<PackageReference Include="Cake.FileHelpers" Version="3.3.0" />
+	  <ProjectReference Include="..\Build.Abstractions\Build.Abstractions.csproj" />
+		<!-- Auto import build extensions -->
+		<ProjectReference Include="$(MSBuildProjectDirectory)\..\..\..\build-extensions\**\*.csproj" />
 	</ItemGroup>
 </Project>

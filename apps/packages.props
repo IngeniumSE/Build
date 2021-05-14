@@ -1,0 +1,8 @@
+<Project>
+	<ItemGroup>
+		<PackageReference Include="Cake.Frosting" Version="1.0.0" />
+		<PackageReference Include="Cake.FileHelpers" Version="3.3.0" />
+		<PackageReference Include="Cake.MinVer" Version="1.0.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyModel" Version="$(MSExtVersion)" />
+	</ItemGroup>
+</Project>

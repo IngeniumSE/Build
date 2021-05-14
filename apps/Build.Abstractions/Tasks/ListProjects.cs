@@ -14,7 +14,7 @@ namespace Build.Tasks
 	/// <summary>
 	/// Outputs useful debugging information about the build.
 	/// </summary>
-	[TaskName("ListProjects")]
+	[TaskName("List")]
 	public class ListProjects : BuildTask
 	{
 		/// <inheritdoc />
