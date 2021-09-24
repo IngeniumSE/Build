@@ -8,5 +8,7 @@
 		<MSExtDIVersion Condition="'$(MSExtDIVersion)'==''">$(MSExtVersion)</MSExtDIVersion>
 		<MSExtDepModelVersion Condition="'$(MSExtDepModelVersion)'==''">$(MSExtVersion)</MSExtDepModelVersion>
 		<MSExtHostVersion Condition="'$(MSExtHostVersion)'==''">$(MSExtVersion)</MSExtHostVersion>
+		<MSExtOptionsVersion Condition="'$(MSExtOptionsVersion)'==''">$(MSExtVersion)</MSExtOptionsVersion>
+		<MSExtHttpVersion Condition="'$(MSExtHttpVersion)'==''">$(MSExtVersion)</MSExtHttpVersion>
 	</PropertyGroup>
 </Project>
