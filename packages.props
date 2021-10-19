@@ -11,6 +11,7 @@
 		<PackageReference Update="Microsoft.Extensions.Hosting" Version="$(MSExtHostVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(MSExtHostVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Options" Version="$(MSExtOptionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(MSExtOptionsVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Http" Version="$(MSExtHttpVersion)" />
 	</ItemGroup>
 
