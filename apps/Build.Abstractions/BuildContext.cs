@@ -32,7 +32,9 @@ namespace Build
 			Projects = context.GetBuildProjects(RootPath, new BuildSettings());
 
 			ArtefactsPath = RootPath.Combine(new DirectoryPath(BuildPaths.ArtefactsPath));
+			BuildPath = RootPath.Combine(new DirectoryPath(BuildPaths.BuildPath));
 			TestResultsPath = RootPath.Combine(new DirectoryPath(BuildPaths.TestResultsPath));
+			CodeCoverageResultsPath = RootPath.Combine(new DirectoryPath(BuildPaths.CodeCoverageResultsPath));
 		}
 
 		/// <summary>
@@ -49,6 +51,16 @@ namespace Build
 		/// Gets the artefacts path.
 		/// </summary>
 		public DirectoryPath ArtefactsPath { get; }
+
+		/// <summary>
+		/// Gets the build path.
+		/// </summary>
+		public DirectoryPath BuildPath { get; }
+
+		/// <summary>
+		/// Gets the code coverage results path.
+		/// </summary>
+		public DirectoryPath CodeCoverageResultsPath { get; }
 
 		/// <summary>
 		/// Gets the resolved root path.

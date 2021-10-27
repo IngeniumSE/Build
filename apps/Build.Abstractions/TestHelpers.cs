@@ -14,6 +14,7 @@ namespace Build
 	using Cake.Common.Xml;
 	using Cake.Core;
 	using Cake.Core.IO;
+	using Cake.Coverlet;
 
 	/// <summary>
 	/// Provides helper methods for testing projects.
@@ -31,6 +32,8 @@ namespace Build
 		{
 			string name = project.ProjectFilePath.GetFilenameWithoutExtension().Segments.Last();
 			string resultsFile = $"{name}.xml";
+			string coverletFile = $"{name}-coverage";
+			string coverletRunSettingsFile = FilePath.FromString("./coverlet.runsettings").MakeAbsolute(context.BuildPath).FullPath;
 
 			if (project.BuildEngine == BuildEngine.MSBuild)
 			{
@@ -52,6 +55,7 @@ namespace Build
 				foreach (string framework in project.TargetFrameworks)
 				{
 					resultsFile = $"{name}-{framework}.xml";
+					coverletFile = $"{name}-{framework}-coverage";
 
 					var settings = new DotNetCoreTestSettings
 					{
@@ -65,6 +69,8 @@ namespace Build
 						},
 						ArgumentCustomization = args =>
 						{
+							args.Append("--collect:\"XPlat Code Coverage\"");
+							args.Append($"--settings {coverletRunSettingsFile}");
 							args.Append($"/p:SolutionDir={context.SolutionPath.FullPath}");
 							return args;
 						}

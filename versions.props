@@ -10,5 +10,6 @@
 		<MSExtHostVersion Condition="'$(MSExtHostVersion)'==''">$(MSExtVersion)</MSExtHostVersion>
 		<MSExtOptionsVersion Condition="'$(MSExtOptionsVersion)'==''">$(MSExtVersion)</MSExtOptionsVersion>
 		<MSExtHttpVersion Condition="'$(MSExtHttpVersion)'==''">$(MSExtVersion)</MSExtHttpVersion>
+		<MSExtLogVersion Condition="'$(MSExtLogVersion)'==''">$(MSExtVersion)</MSExtLogVersion>
 	</PropertyGroup>
 </Project>

@@ -3,6 +3,7 @@ using System;
 /// <summary>
 /// Provides utility methods for validating method arguments.
 /// </summary>
+[SkipCodeCoverage]
 static class Ensure
 {
 	/// <summary>
@@ -40,5 +41,8 @@ static class Ensure
 	}
 }
 
-[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
+[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false), SkipCodeCoverage]
 sealed class ValidatedNotNullAttribute : Attribute { }
+
+[AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = false), SkipCodeCoverage]
+sealed class SkipCodeCoverageAttribute : Attribute { }

@@ -20,6 +20,16 @@ namespace Build
 		public const string ArtefactsPath = "./artefacts/";
 
 		/// <summary>
+		/// Gets the build path.
+		/// </summary>
+		public const string BuildPath = "./build/";
+
+		/// <summary>
+		/// Gets the code coverage results path.
+		/// </summary>
+		public const string CodeCoverageResultsPath = "./artefacts/coverage";
+
+		/// <summary>
 		/// Gets the content path convention.
 		/// </summary>
 		public const string ContentPathConvention = "./content/**/*.csproj";

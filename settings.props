@@ -11,6 +11,9 @@
 		
 		<!-- Remove the .Abstractions namespace from root -->
 		<RootNamespace Condition="$(MSBuildProjectName.EndsWith('.Abstractions'))">$(MSBuildProjectName.Replace('.Abstractions', ''))</RootNamespace>
+		
+		<!-- Remove the .Tests namespace from root -->
+		<RootNamespace Condition="$(MSBuildProjectName.EndsWith('.Tests'))">$(MSBuildProjectName.Replace('.Tests', ''))</RootNamespace>
 	</PropertyGroup>
 	
 	<PropertyGroup Label="Conventions">

@@ -13,6 +13,7 @@ namespace Build.Tasks
 	/// </summary>
 	[TaskName("Build")]
 	[IsDependentOn(typeof(ResolveVerson))]
+	[IsDependentOn(typeof(CleanArtefacts))]
 	public class BuildProjects : BuildTask
 	{
 		public BuildProjects(BuildServices services) : base(services) { }
