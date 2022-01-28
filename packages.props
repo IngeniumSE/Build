@@ -3,6 +3,8 @@
 		<PackageReference Update="Microsoft.CodeAnalysis.CSharp" Version="3.8.0" PrivateAssets="all" />
 		<PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="3.3.1" PrivateAssets="all" />
 
+		<PackageReference Update="Microsoft.Data.SqlClient" Version="4.0.1" />
+
 		<PackageReference Update="Microsoft.Extensions.Configuration" Version="$(MSExtConfigVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Configuration.Json" Version="$(MSExtConfigVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Configuration.Abstractions" Version="$(MSExtConfigVersion)" />
@@ -31,6 +33,7 @@
 		<PackageReference Update="Spectre.Console" Version="0.39.1-preview.0.20" />
 		
 		<!-- Third Parties -->
+		<PackageReference Update="Dapper" Version="2.0.123" />
 		<PackageReference Update="FluentValidation" Version="10.3.3" />
 	</ItemGroup>
 
@@ -40,5 +43,7 @@
 		<PackageReference Update="Moq" Version="4.16.1" />
 		<PackageReference Update="xunit" Version="2.4.1" />
 		<PackageReference Update="xunit.runner.visualstudio" Version="2.4.1" />
+		<PackageReference Update="Verify.XUnit" Version="14.11.1" />
+		<PackageReference Update="Verify.SourceGenerators" Version="1.2.0" />
 	</ItemGroup>
 </Project>

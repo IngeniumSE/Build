@@ -1,7 +1,7 @@
 <Project>
 	<PropertyGroup Label="Microsoft">
 		<!-- Overall MSE.* -->
-		<MSExtVersion Condition="'$(MSExtVersion)'==''">5.0.0</MSExtVersion>
+		<MSExtVersion Condition="'$(MSExtVersion)'==''">6.0.0</MSExtVersion>
 
 		<!-- Specific MSE.* packages -->
 		<MSExtConfigVersion Condition="'$(MSExtConfigVersion)'==''">$(MSExtVersion)</MSExtConfigVersion>

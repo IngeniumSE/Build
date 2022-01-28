@@ -4,7 +4,7 @@ using System;
 /// Provides utility methods for validating method arguments.
 /// </summary>
 [SkipCodeCoverage]
-static class Ensure
+internal static class Ensure
 {
 	/// <summary>
 	/// Validates the given parameter value is not null.
@@ -42,7 +42,9 @@ static class Ensure
 }
 
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false), SkipCodeCoverage]
-sealed class ValidatedNotNullAttribute : Attribute { }
+internal sealed class ValidatedNotNullAttribute : Attribute
+{ }
 
 [AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = false), SkipCodeCoverage]
-sealed class SkipCodeCoverageAttribute : Attribute { }
+internal sealed class SkipCodeCoverageAttribute : Attribute
+{ }
