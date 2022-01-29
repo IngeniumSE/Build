@@ -35,6 +35,14 @@
 		<!-- Third Parties -->
 		<PackageReference Update="Dapper" Version="2.0.123" />
 		<PackageReference Update="FluentValidation" Version="10.3.3" />
+		<PackageReference Update="GraphQL" Version="$(GraphQLVersion)" />
+		<PackageReference Update="GraphQL.MicrosoftDI" Version="$(GraphQLVersion)" />
+		<PackageReference Update="GraphQL.NewtonsoftJson" Version="$(GraphQLVersion)" />
+		<PackageReference Update="GraphQL.SystemTextJson" Version="$(GraphQLVersion)" />
+		<PackageReference Update="GraphQL.Server.Transports.AspNetCore" Version="$(GraphQLServerVersion)" />
+		<PackageReference Update="GraphQL.Server.Transports.AspNetCore.NewtonsoftJson" Version="$(GraphQLServerVersion)" />
+		<PackageReference Update="GraphQL.Server.Transports.AspNetCore.SystemTextJson" Version="$(GraphQLServerVersion)" />
+		<PackageReference Update="GraphQL.Server.UI.Playground" Version="$(GraphQLServerVersion)" />
 	</ItemGroup>
 
 	<ItemGroup Label="Testing">

@@ -12,4 +12,9 @@
 		<MSExtHttpVersion Condition="'$(MSExtHttpVersion)'==''">$(MSExtVersion)</MSExtHttpVersion>
 		<MSExtLogVersion Condition="'$(MSExtLogVersion)'==''">$(MSExtVersion)</MSExtLogVersion>
 	</PropertyGroup>
+
+	<PropertyGroup Label="Third Party">
+		<GraphQLVersion Condition="'$(GraphQLVersion)'==''">4.7.1</GraphQLVersion>
+		<GraphQLServerVersion Condition="'$(GraphQLServerVersion)'==''">5.2.0</GraphQLServerVersion>
+	</PropertyGroup>
 </Project>
