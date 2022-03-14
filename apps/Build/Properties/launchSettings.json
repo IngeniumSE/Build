@@ -16,6 +16,10 @@
 			"commandName": "Project",
 			"commandLineArgs": "--target Test"
 		},
+		"Target: Pack": {
+			"commandName": "Project",
+			"commandLineArgs": "--target Pack"
+		},
 		"Target: List Projects": {
 			"commandName": "Project",
 			"commandLineArgs": "--target List"

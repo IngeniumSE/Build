@@ -37,7 +37,7 @@ namespace Build.Tasks
 			table.AddRow("File version", context.Version.FileVersion);
 			table.AddRow("Informational version", context.Version.InformationalVersion);
 			table.AddRow("Is pre-release?", context.Version.IsPreRelease.ToString());
-			table.AddRow("Pre-release", context.Version.PreRelease);
+			table.AddRow("Pre-release", context.Version.PreRelease ?? "");
 
 			AnsiConsole.Render(table);
 		}
