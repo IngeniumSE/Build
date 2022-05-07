@@ -5,6 +5,13 @@
 
 		<PackageReference Update="Microsoft.Data.SqlClient" Version="4.0.1" />
 
+		<PackageReference Update="Microsoft.EntityFrameworkCore" Version="$(MSEFCoreVersion)" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Abstractions" Version="$(MSEFCoreVersion)" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Relational" Version="$(MSEFCoreVersion)" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.InMemory" Version="$(MSEFCoreVersion)" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MSEFCoreVersion)" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Proxies" Version="$(MSEFCoreVersion)" />
+
 		<PackageReference Update="Microsoft.Extensions.Configuration" Version="$(MSExtConfigVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Configuration.Json" Version="$(MSExtConfigVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Configuration.Abstractions" Version="$(MSExtConfigVersion)" />

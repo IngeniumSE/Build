@@ -1,5 +1,8 @@
 <Project>
 	<PropertyGroup Label="Microsoft">
+		<!-- Entity Framework Core -->
+		<MSEFCoreVersion Condition="'$(MSEFCoreVersion)'==''">6.0.1</MSEFCoreVersion>
+		
 		<!-- Overall MSE.* -->
 		<MSExtVersion Condition="'$(MSExtVersion)'==''">6.0.0</MSExtVersion>
 
