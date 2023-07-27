@@ -1,9 +1,12 @@
 <Project>
-	<PropertyGroup>
-		<LangVersion>preview</LangVersion>
-		<Nullable>enable</Nullable>
-		<ImplicitUsings>enable</ImplicitUsings>
-	</PropertyGroup>
+	<Import Project="../Directory.Build.props" />
 
-	<Import Project="../versions.props"/>
+	<ItemGroup>
+		<PackageReference Include="Cake.Frosting" />
+		<PackageReference Include="Cake.FileHelpers" />
+		<PackageReference Include="Cake.MinVer" />
+		<PackageReference Include="Cake.Coverlet" />
+		<PackageReference Include="Microsoft.Extensions.DependencyModel" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+	</ItemGroup>
 </Project>

@@ -14,6 +14,9 @@
 		
 		<!-- Remove the .Tests namespace from root -->
 		<RootNamespace Condition="$(MSBuildProjectName.EndsWith('.Tests'))">$(MSBuildProjectName.Replace('.Tests', ''))</RootNamespace>
+
+		<!-- Enable implicit namespace imports -->
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	
 	<PropertyGroup Label="Conventions">
@@ -24,4 +27,13 @@
 		<!-- The default test framework is xunit -->
 		<Ing_TestFramework Condition="'$(Ing_TestFramework)'==''">xunit</Ing_TestFramework>
 	</PropertyGroup>
+
+	<!-- Conventions for unit test projects -->
+	<PropertyGroup Condition="'$(Ing_ProjectType)'=='Test'" Label="Testing">
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+  <ItemGroup Label="Sources">
+    <Compile Include="$(MSBuildThisFileDirectory)src\**\*.cs" />
+  </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 <Project>
 	<!-- Conventions for build extensions -->
-	<Import Project="./apps/packages.props" Condition="'$(Ing_ProjectType)'=='BuildExtension'"/>
+	<Import Project="./apps/Directory.Packages.props" Condition="'$(Ing_ProjectType)'=='BuildExtension'"/>
 	
 	<!-- Standard packages in all projects -->
 	<ItemGroup Label="Standard" Condition="'$(Ing_ProjectType)'!='BuildExtension'">

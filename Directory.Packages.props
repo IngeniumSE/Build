@@ -1,0 +1,98 @@
+<Project>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+	
+	<PropertyGroup Label="Microsoft">
+		<!-- Entity Framework Core -->
+		<MSEFCoreVersion Condition="'$(MSEFCoreVersion)'==''">7.0.3</MSEFCoreVersion>
+		
+		<!-- Overall MSE.* -->
+		<MSExtVersion Condition="'$(MSExtVersion)'==''">7.0.0</MSExtVersion>
+
+		<!-- Specific MSE.* packages -->
+		<MSExtConfigVersion Condition="'$(MSExtConfigVersion)'==''">$(MSExtVersion)</MSExtConfigVersion>
+		<MSExtDIVersion Condition="'$(MSExtDIVersion)'==''">$(MSExtVersion)</MSExtDIVersion>
+		<MSExtDepModelVersion Condition="'$(MSExtDepModelVersion)'==''">$(MSExtVersion)</MSExtDepModelVersion>
+		<MSExtHostVersion Condition="'$(MSExtHostVersion)'==''">$(MSExtVersion)</MSExtHostVersion>
+		<MSExtOptionsVersion Condition="'$(MSExtOptionsVersion)'==''">$(MSExtVersion)</MSExtOptionsVersion>
+		<MSExtHttpVersion Condition="'$(MSExtHttpVersion)'==''">$(MSExtVersion)</MSExtHttpVersion>
+		<MSExtLogVersion Condition="'$(MSExtLogVersion)'==''">$(MSExtVersion)</MSExtLogVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Third Party">
+		<GraphQLVersion Condition="'$(GraphQLVersion)'==''">7.2.2</GraphQLVersion>
+		<GraphQLServerVersion Condition="'$(GraphQLServerVersion)'==''">7.2.0</GraphQLServerVersion>
+	</PropertyGroup>
+
+	<ItemGroup Label="Microsoft">
+		<PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+		<PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
+
+		<PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.0" />
+
+		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(MSEFCoreVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="$(MSEFCoreVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(MSEFCoreVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="$(MSEFCoreVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MSEFCoreVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Proxies" Version="$(MSEFCoreVersion)" />
+
+		<PackageVersion Include="Microsoft.Extensions.Configuration" Version="$(MSExtConfigVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="$(MSExtConfigVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="$(MSExtConfigVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(MSExtConfigVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(MSExtDIVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MSExtDIVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="$(MSExtDepModelVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Hosting" Version="$(MSExtHostVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="$(MSExtHostVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Logging" Version="$(MSExtLogVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="$(MSExtLogVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="$(MSExtLogVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Options" Version="$(MSExtOptionsVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(MSExtOptionsVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Http" Version="$(MSExtHttpVersion)" />
+	</ItemGroup>
+
+	<ItemGroup Label="System">
+		<PackageVersion Include="System.Text.Json" Version="7.0.2" />
+	</ItemGroup>
+
+	<ItemGroup Label="Cake">
+		<PackageVersion Include="Cake.Frosting" Version="1.0.0" />
+		<PackageVersion Include="Cake.FileHelpers" Version="3.3.0" />
+		<PackageVersion Include="Cake.MinVer" Version="1.0.1" />
+		<PackageVersion Include="Cake.Coverlet" Version="2.5.4" />
+	</ItemGroup>
+
+	<ItemGroup Label="ThirdParty">
+		<PackageVersion Include="Ben.Demystifier" Version="0.4.1" />
+		<PackageVersion Include="MinVer" Version="4.3.0" />
+
+		<!-- CLI Tools -->
+		<PackageVersion Include="Spectre.Console" Version="0.46.1-preview.0.7" />
+		
+		<!-- Third Parties -->
+		<PackageVersion Include="Dapper" Version="2.0.123" />
+		<PackageVersion Include="FluentValidation" Version="11.5.0" />
+		<PackageVersion Include="GraphQL" Version="$(GraphQLVersion)" />
+		<PackageVersion Include="GraphQL.MicrosoftDI" Version="$(GraphQLVersion)" />
+		<PackageVersion Include="GraphQL.NewtonsoftJson" Version="$(GraphQLVersion)" />
+		<PackageVersion Include="GraphQL.SystemTextJson" Version="$(GraphQLVersion)" />
+		<PackageVersion Include="GraphQL.Server.Transports.AspNetCore" Version="$(GraphQLServerVersion)" />
+		<PackageVersion Include="GraphQL.Server.Transports.AspNetCore.NewtonsoftJson" Version="$(GraphQLServerVersion)" />
+		<PackageVersion Include="GraphQL.Server.Transports.AspNetCore.SystemTextJson" Version="$(GraphQLServerVersion)" />
+		<PackageVersion Include="GraphQL.Server.UI.Playground" Version="$(GraphQLServerVersion)" />
+	</ItemGroup>
+
+	<ItemGroup Label="Testing">
+		<PackageVersion Include="coverlet.collector" Version="3.2.0" />
+		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+		<PackageVersion Include="Moq" Version="4.18.4" />
+		<PackageVersion Include="xunit" Version="2.4.2" />
+		<PackageVersion Include="xunit.runner.visualstudio" Version="2.4.5" />
+		<PackageVersion Include="Verify.XUnit" Version="19.9.3" />
+		<PackageVersion Include="Verify.SourceGenerators" Version="2.1.0" />
+	</ItemGroup>
+</Project>

@@ -1,6 +1,0 @@
-<Project>
-	<!-- Conventions for unit test projects -->
-	<PropertyGroup Condition="'$(Ing_ProjectType)'=='Test'">
-		<IsPackable>false</IsPackable>
-	</PropertyGroup>
-</Project>
