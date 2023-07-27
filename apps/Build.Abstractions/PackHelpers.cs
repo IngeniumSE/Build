@@ -27,7 +27,7 @@ namespace Build
 			this BuildContext context,
 			BuildProject project)
 		{
-			if (project.PackageType == PackageType.Nuget)
+			if (project.PackageType == PackageType.NuGet)
 			{
 				string specFile = $"{IOPath.GetFileNameWithoutExtension(project.ProjectFilePath.FullPath)}.nuspec";
 				var specFilePath = context.MakeAbsolute(

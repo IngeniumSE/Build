@@ -243,7 +243,7 @@ namespace Build
 				if (string.Equals("true", isPackable, StringComparison.OrdinalIgnoreCase) ||
 						isPackable is null)
 				{
-					packageType = PackageType.Nuget;
+					packageType = PackageType.NuGet;
 				}
 			}
 

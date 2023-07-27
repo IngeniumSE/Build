@@ -73,9 +73,9 @@ namespace Build
 	public enum PackageType
 	{
 		/// <summary>
-		/// Pack as a Nuget package.
+		/// Pack as a NuGet package.
 		/// </summary>
-		Nuget,
+		NuGet,
 
 		/// <summary>
 		/// Pack as a zip file.
