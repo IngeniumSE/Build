@@ -50,7 +50,7 @@ namespace Build.Tasks
 			}
 			else
 			{
-				AnsiConsole.Render(table);
+				AnsiConsole.Write(table);
 			}
 		}
 
