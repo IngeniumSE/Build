@@ -33,6 +33,7 @@ namespace Build.Tasks
 
 			table.Border(TableBorder.Rounded);
 
+			table.AddRow("Repo", context.RootPath.FullPath);
 			table.AddRow("Version", context.Version.Version);
 			table.AddRow("Package version", context.Version.PackageVersion);
 			table.AddRow("Assembly version", context.Version.AssemblyVersion);

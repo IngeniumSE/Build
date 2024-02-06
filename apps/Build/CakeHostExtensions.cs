@@ -80,6 +80,8 @@ namespace Build
 		}
 
 		static IReadOnlyCollection<Assembly> DiscoverAssemblies()
+#pragma warning disable CS8604 // Possible null reference argument.
 			=> new DependencyContextAssemblyProvider(DependencyContext.Default).Assemblies;
+#pragma warning restore CS8604 // Possible null reference argument.
 	}
 }
