@@ -22,7 +22,7 @@
 		},
 		"Target: Publish": {
 			"commandName": "Project",
-			"commandLineArgs": "--target Publish --publish --source GitHub --feed https://nuget.pkg.github.com/IngeniumSE/index.json --username Antaris --token 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"
+			"commandLineArgs": "--target Publish --publish" // "--source GitHub --feed {feed-url} -username {username} -password {token}
 		},
 		"Target: List Projects": {
 			"commandName": "Project",
