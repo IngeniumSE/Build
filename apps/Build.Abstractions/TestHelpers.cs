@@ -8,8 +8,8 @@ namespace Build
 	using System.Linq;
 
 	using Cake.Common.IO;
-	using Cake.Common.Tools.DotNetCore;
-	using Cake.Common.Tools.DotNetCore.Test;
+	using Cake.Common.Tools.DotNet;
+	using Cake.Common.Tools.DotNet.Test;
 	using Cake.Common.Tools.VSTest;
 	using Cake.Common.Xml;
 	using Cake.Core;
@@ -57,7 +57,7 @@ namespace Build
 					resultsFile = $"{name}-{framework}.xml";
 					coverletFile = $"{name}-{framework}-coverage";
 
-					var settings = new DotNetCoreTestSettings
+					var settings = new DotNetTestSettings
 					{
 						NoBuild = project.HasBuilt,
 						Configuration = context.Configuration,
@@ -76,7 +76,7 @@ namespace Build
 						}
 					};
 
-					context.DotNetCoreTest(project.ProjectFilePath.FullPath, settings);
+					context.DotNetTest(project.ProjectFilePath.FullPath, settings);
 				}
 			}
 		}

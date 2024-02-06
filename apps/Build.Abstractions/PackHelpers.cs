@@ -5,8 +5,8 @@
 namespace Build
 {
 	using Cake.Common.IO;
-	using Cake.Common.Tools.DotNetCore;
-	using Cake.Common.Tools.DotNetCore.Pack;
+	using Cake.Common.Tools.DotNet;
+	using Cake.Common.Tools.DotNet.Pack;
 	using Cake.Core;
 	using Cake.Core.IO;
 	using Cake.FileHelpers;
@@ -42,7 +42,7 @@ namespace Build
 					context.ReplaceTextInFiles(tempFilePath.FullPath, "$(configuration)", context.Configuration);
 				}
 
-				context.DotNetCorePack(project.ProjectFilePath.FullPath, new DotNetCorePackSettings
+				context.DotNetPack(project.ProjectFilePath.FullPath, new DotNetPackSettings
 				{
 					ArgumentCustomization = args =>
 					{

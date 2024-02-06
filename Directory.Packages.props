@@ -60,10 +60,10 @@
 	</ItemGroup>
 
 	<ItemGroup Label="Cake">
-		<PackageVersion Include="Cake.Frosting" Version="1.0.0" />
-		<PackageVersion Include="Cake.FileHelpers" Version="3.3.0" />
-		<PackageVersion Include="Cake.MinVer" Version="1.0.1" />
-		<PackageVersion Include="Cake.Coverlet" Version="2.5.4" />
+		<PackageVersion Include="Cake.Frosting" Version="3.1.0" />
+		<PackageVersion Include="Cake.FileHelpers" Version="3.4.0" />
+		<PackageVersion Include="Cake.MinVer" Version="3.0.0" />
+		<PackageVersion Include="Cake.Coverlet" Version="3.0.4" />
 	</ItemGroup>
 
 	<ItemGroup Label="ThirdParty">

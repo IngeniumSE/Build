@@ -10,10 +10,10 @@ namespace Build
 	using System.Linq;
 
 	using Cake.Common.IO;
-	using Cake.Common.Tools.DotNetCore;
-	using Cake.Common.Tools.DotNetCore.Build;
-	using Cake.Common.Tools.DotNetCore.Publish;
-	using Cake.Common.Tools.DotNetCore.Test;
+	using Cake.Common.Tools.DotNet;
+	using Cake.Common.Tools.DotNet.Build;
+	using Cake.Common.Tools.DotNet.Publish;
+	using Cake.Common.Tools.DotNet.Test;
 	using Cake.Common.Tools.MSBuild;
 	using Cake.Common.Tools.NuGet;
 	using Cake.Common.Tools.NuGet.Restore;
@@ -102,7 +102,7 @@ namespace Build
 				{
 					if (publish && outputPath is not null)
 					{
-						var settings = new DotNetCorePublishSettings()
+						var settings = new DotNetPublishSettings()
 						{
 							Configuration = context.Configuration,
 							ArgumentCustomization = args =>
@@ -122,11 +122,11 @@ namespace Build
 							Framework = targetFramework
 						};
 
-						context.DotNetCorePublish(project.ProjectFilePath.FullPath, settings);
+						context.DotNetPublish(project.ProjectFilePath.FullPath, settings);
 					}
 					else
 					{
-						var settings = new DotNetCoreBuildSettings()
+						var settings = new DotNetBuildSettings()
 						{
 							Configuration = context.Configuration,
 							ArgumentCustomization = args =>
@@ -146,7 +146,7 @@ namespace Build
 							Framework = targetFramework
 						};
 
-						context.DotNetCoreBuild(project.ProjectFilePath.FullPath, settings);
+						context.DotNetBuild(project.ProjectFilePath.FullPath, settings);
 					}
 				}
 			}
