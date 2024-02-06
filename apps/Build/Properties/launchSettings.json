@@ -20,6 +20,10 @@
 			"commandName": "Project",
 			"commandLineArgs": "--target Pack"
 		},
+		"Target: Publish": {
+			"commandName": "Project",
+			"commandLineArgs": "--target Publish --publish --source GitHub --feed https://nuget.pkg.github.com/IngeniumSE/index.json --username Antaris --token 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"
+		},
 		"Target: List Projects": {
 			"commandName": "Project",
 			"commandLineArgs": "--target List"

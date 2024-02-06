@@ -45,6 +45,11 @@ namespace Build
 		public const string LibraryPathConvention = "./libs/**/*.csproj";
 
 		/// <summary>
+		/// Gets the NuGet config path.
+		/// </summary>
+		public const string NuGetConfigPath = "./NuGet.config";
+
+		/// <summary>
 		/// Gets the test path convention.
 		/// </summary>
 		public const string TestPathConvention = "./tests/**/*.csproj";

@@ -14,6 +14,7 @@ namespace Build.Tasks
 	[IsDependentOn(typeof(BuildProjects))]
 	[IsDependentOn(typeof(TestProjects))]
 	[IsDependentOn(typeof(PackProjects))]
+	[IsDependentOn(typeof(PublishPackages))]
 	public class DefaultTask : BuildTask
 	{
 		public DefaultTask(BuildServices services) : base(services) { }

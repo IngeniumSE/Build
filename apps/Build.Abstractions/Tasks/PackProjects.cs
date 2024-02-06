@@ -7,7 +7,7 @@ namespace Build.Tasks
 	using Cake.Frosting;
 
 	/// <summary>
-	/// Packs any avaible apps and libraries.
+	/// Packs any available apps and libraries.
 	/// </summary>
 	[TaskName("Pack")]
 	public class PackProjects : BuildTask

@@ -35,6 +35,7 @@ namespace Build
 			BuildPath = RootPath.Combine(new DirectoryPath(BuildPaths.BuildPath));
 			TestResultsPath = RootPath.Combine(new DirectoryPath(BuildPaths.TestResultsPath));
 			CodeCoverageResultsPath = RootPath.Combine(new DirectoryPath(BuildPaths.CodeCoverageResultsPath));
+			NuGetConfigPath = RootPath.CombineWithFilePath(new FilePath(BuildPaths.NuGetConfigPath));
 		}
 
 		/// <summary>
@@ -61,6 +62,11 @@ namespace Build
 		/// Gets the code coverage results path.
 		/// </summary>
 		public DirectoryPath CodeCoverageResultsPath { get; }
+
+		/// <summary>
+		/// Gets the solution NuGet.config file path.
+		/// </summary>
+		public FilePath NuGetConfigPath { get; }
 
 		/// <summary>
 		/// Gets the resolved root path.
