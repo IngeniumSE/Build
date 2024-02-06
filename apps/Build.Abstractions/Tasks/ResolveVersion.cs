@@ -4,7 +4,8 @@
 
 namespace Build.Tasks
 {
-
+	using Cake.Core;
+	using Cake.Core.Tooling;
 	using Cake.Frosting;
 	using Cake.MinVer;
 
@@ -14,14 +15,15 @@ namespace Build.Tasks
 	/// Performs a build of available projects.
 	/// </summary>
 	[TaskName("Version")]
-	public class ResolveVerson : BuildTask
+	public class ResolveVersion : BuildTask
 	{
-		public ResolveVerson(BuildServices services) : base(services) { }
+		public ResolveVersion(BuildServices services) : base(services) { }
 
 		/// <inheritdoc />
 		protected override void RunCore(BuildContext context)
 		{
-			var settings = VersionHelpers.GetMinVerSettings(context);
+			var settings = VersionHelpers.GetMinVerSettings(context)
+				.WithArgumentCustomization(c => c.Append(context.RootPath.FullPath));
 
 			context.Version = context.MinVer(settings);
 
@@ -39,7 +41,7 @@ namespace Build.Tasks
 			table.AddRow("Is pre-release?", context.Version.IsPreRelease.ToString());
 			table.AddRow("Pre-release", context.Version.PreRelease ?? "");
 
-			AnsiConsole.Render(table);
+			AnsiConsole.Write(table);
 		}
 	}
 }

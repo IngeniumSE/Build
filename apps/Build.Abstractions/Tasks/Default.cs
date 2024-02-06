@@ -10,7 +10,7 @@ namespace Build.Tasks
 	/// The default (entry point) task for the build.
 	/// </summary>
 	[TaskName("Default")]
-	[IsDependentOn(typeof(ResolveVerson))]
+	[IsDependentOn(typeof(ResolveVersion))]
 	[IsDependentOn(typeof(BuildProjects))]
 	[IsDependentOn(typeof(TestProjects))]
 	[IsDependentOn(typeof(PackProjects))]

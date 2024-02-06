@@ -12,7 +12,7 @@ namespace Build.Tasks
 	/// Performs a build of available projects.
 	/// </summary>
 	[TaskName("Build")]
-	[IsDependentOn(typeof(ResolveVerson))]
+	[IsDependentOn(typeof(ResolveVersion))]
 	[IsDependentOn(typeof(CleanArtefacts))]
 	public class BuildProjects : BuildTask
 	{
