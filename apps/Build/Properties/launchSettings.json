@@ -22,7 +22,7 @@
 		},
 		"Target: Publish": {
 			"commandName": "Project",
-			"commandLineArgs": "--target Publish --publish" // "--source GitHub --feed {feed-url} -username {username} -password {token}
+			"commandLineArgs": "--target Publish --publish --source GitHub --feed blah --username blah --token blah"
 		},
 		"Target: List Projects": {
 			"commandName": "Project",

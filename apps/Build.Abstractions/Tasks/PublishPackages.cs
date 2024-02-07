@@ -38,7 +38,7 @@ namespace Build.Tasks
 
 		protected override void RunCore(BuildContext context)
 		{
-			bool isCustomFeed = context.HasArgument(CommonArguments.NuGet);
+			bool isCustomFeed = !context.HasArgument(CommonArguments.NuGet);
 
 			string feed = context.Argument<string>(CommonArguments.Feed);
 			string source = context.Argument<string>(CommonArguments.Source);
