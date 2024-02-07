@@ -40,10 +40,10 @@ namespace Build.Tasks
 		{
 			bool isCustomFeed = !context.HasArgument(CommonArguments.NuGet);
 
-			string feed = context.Argument<string>(CommonArguments.Feed);
-			string source = context.Argument<string>(CommonArguments.Source);
-			string token = context.Argument<string>(CommonArguments.Token);
-			string username = context.Argument<string>(CommonArguments.Username);
+			string feed = context.Argument(CommonArguments.Feed, "");
+			string source = context.Argument(CommonArguments.Source, "");
+			string token = context.Argument(CommonArguments.Token, "");
+			string username = context.Argument(CommonArguments.Username, "");
 
 			bool addedSource = false;
 			NuGetSourcesSettings? sourceSettings = null;
