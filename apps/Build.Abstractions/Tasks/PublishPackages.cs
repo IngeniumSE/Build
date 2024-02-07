@@ -20,51 +20,64 @@ namespace Build.Tasks
 	[IsDependentOn(typeof(PackProjects))]
 	public class PublishPackages : BuildTask
 	{
+		const string NUGET_FEED = "https://api.nuget.org/v3/index.json";
+
 		public PublishPackages(BuildServices services) : base(services) { }
 
 		public override bool ShouldRun(ICakeContext context)
 			=> context.HasArgument(CommonArguments.Publish)
-			&& context.HasArgument(CommonArguments.Feed)
-			&& context.HasArgument(CommonArguments.Source)
-			&& context.HasArgument(CommonArguments.Token);
+			&& (
+				// Either we're publishing to the public feed using --publish --nuget --token {token}
+				(context.HasArgument(CommonArguments.NuGet) && context.HasArgument(CommonArguments.Token))
+				// Or we're publishing to a custom feed using --publish --source {source} --feed {feed} --username {username} --token {token}
+				|| (context.HasArgument(CommonArguments.Feed)
+						&& context.HasArgument(CommonArguments.Source)
+						&& context.HasArgument(CommonArguments.Token)
+				)
+			);
 
 		protected override void RunCore(BuildContext context)
 		{
+			bool isCustomFeed = context.HasArgument(CommonArguments.NuGet);
+
 			string feed = context.Argument<string>(CommonArguments.Feed);
 			string source = context.Argument<string>(CommonArguments.Source);
 			string token = context.Argument<string>(CommonArguments.Token);
 			string username = context.Argument<string>(CommonArguments.Username);
 
-			// Get the generated packages.
-			var packages = context.GetFiles(context.ArtefactsPath + "**/*.nupkg");
-
 			bool addedSource = false;
-			var sourceSettings = new NuGetSourcesSettings
+			NuGetSourcesSettings? sourceSettings = null;
+			if (isCustomFeed)
 			{
-				UserName = username,
-				Password = token,
-				StorePasswordInClearText = true
-			};
-
-			{
-				if (context.FileExists(context.NuGetConfigPath))
+				sourceSettings = new NuGetSourcesSettings
 				{
-					sourceSettings.ConfigFile = context.NuGetConfigPath;
-				}
+					UserName = username,
+					Password = token,
+					StorePasswordInClearText = true
+				};
 
-				if (!context.NuGetHasSource(feed, sourceSettings))
 				{
-					context.NuGetAddSource(source, feed, sourceSettings);
-					addedSource = true;
+					if (context.FileExists(context.NuGetConfigPath))
+					{
+						sourceSettings.ConfigFile = context.NuGetConfigPath;
+					}
+
+					if (!context.NuGetHasSource(feed, sourceSettings))
+					{
+						context.NuGetAddSource(source, feed, sourceSettings);
+						addedSource = true;
+					}
 				}
 			}
 
+			// Get the generated packages.
+			var packages = context.GetFiles(context.ArtefactsPath + "**/*.nupkg");
 			foreach (var package in packages)
 			{
 				var pushSettings = new NuGetPushSettings
 				{
-					//ArgumentCustomization = c => c.Append($"--api-key {token}"),
-					Source = source,
+					ApiKey = token,
+					Source = isCustomFeed ? source : NUGET_FEED,
 				};
 
 				context.NuGetPush(package, pushSettings);
