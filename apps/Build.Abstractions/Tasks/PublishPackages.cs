@@ -6,6 +6,9 @@ namespace Build.Tasks
 {
 	using Cake.Common;
 	using Cake.Common.IO;
+	using Cake.Common.Tools.DotNet;
+	using Cake.Common.Tools.DotNet.NuGet.Push;
+	using Cake.Common.Tools.DotNet.NuGet.Source;
 	using Cake.Common.Tools.NuGet;
 	using Cake.Common.Tools.NuGet.Push;
 	using Cake.Common.Tools.NuGet.Sources;
@@ -46,11 +49,12 @@ namespace Build.Tasks
 			string username = context.Argument(CommonArguments.Username, "");
 
 			bool addedSource = false;
-			NuGetSourcesSettings? sourceSettings = null;
+			DotNetNuGetAddSourceSettings? sourceSettings = null;
 			if (isCustomFeed)
 			{
-				sourceSettings = new NuGetSourcesSettings
+				sourceSettings = new DotNetNuGetAddSourceSettings
 				{
+					Source = feed,
 					UserName = username,
 					Password = token,
 					StorePasswordInClearText = true
@@ -62,9 +66,9 @@ namespace Build.Tasks
 						sourceSettings.ConfigFile = context.NuGetConfigPath;
 					}
 
-					if (!context.NuGetHasSource(feed, sourceSettings))
+					if (!context.DotNetNuGetHasSource(source, sourceSettings))
 					{
-						context.NuGetAddSource(source, feed, sourceSettings);
+						context.DotNetNuGetAddSource(source, sourceSettings);
 						addedSource = true;
 					}
 				}
@@ -74,18 +78,18 @@ namespace Build.Tasks
 			var packages = context.GetFiles(context.ArtefactsPath + "**/*.nupkg");
 			foreach (var package in packages)
 			{
-				var pushSettings = new NuGetPushSettings
+				var pushSettings = new DotNetNuGetPushSettings
 				{
 					ApiKey = token,
-					Source = isCustomFeed ? source : NUGET_FEED,
+					Source = isCustomFeed ? feed : NUGET_FEED,
 				};
 
-				context.NuGetPush(package, pushSettings);
+				context.DotNetNuGetPush(package, pushSettings);
 			}
 
 			if (addedSource)
 			{
-				context.NuGetRemoveSource(source, feed, sourceSettings);
+				context.DotNetNuGetRemoveSource(source, sourceSettings);
 			}
 		}
 	}
